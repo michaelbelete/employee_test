@@ -6,7 +6,6 @@ import {
 import { todosDal, TodosDal } from './dal';
 import { ITodoPayload, Todo } from './model';
 import { validateTodoCreatePayload } from './validator';
-
 export class TodosController {
   todosDal: TodosDal;
   constructor(todosDal: TodosDal) {
@@ -24,7 +23,7 @@ export class TodosController {
 
   //TODO: Implement get all
   getAll(): IControllerResult<Todo[]> {
-    return null;
+    return newControllerData(this.todosDal.getAll());
   }
 
   //TODO: Implement update
