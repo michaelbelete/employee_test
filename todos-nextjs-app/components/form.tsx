@@ -15,6 +15,8 @@ export default function Form({ reloadList }) {
         return
       }
 
+      setText(""); //empty the input
+
       reloadList();
     })
   }
