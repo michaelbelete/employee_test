@@ -28,12 +28,17 @@ export class TodosController {
 
   //TODO: Implement update
   update(payload: ITodoPayload, id: string): IControllerResult<Todo> {
-    return null;
+    const { error, value } = validateTodoCreatePayload(payload);
+    if(error) {
+      return newControllerError(error.details[0].message, 400);
+    }
+    
+    return newControllerData(this.todosDal.edit(payload, id));
   }
 
   //TODO: Implement delete
   delete(id: string): IControllerResult<String> {
-    return null;
+    return newControllerData(this.todosDal.delete(id));
   }
 }
 

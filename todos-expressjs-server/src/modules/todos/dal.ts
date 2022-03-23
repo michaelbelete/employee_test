@@ -42,6 +42,7 @@ export class TodosDal {
 
   delete(id: string) {
     _.remove(this.todosArray, { _id: id });
+    return "todo deleted successfully";
   }
 }
 
