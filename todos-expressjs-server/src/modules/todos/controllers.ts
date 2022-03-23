@@ -5,7 +5,7 @@ import {
 } from '../../utils/controller-result.model';
 import { todosDal, TodosDal } from './dal';
 import { ITodoPayload, Todo } from './model';
-import { validateTodoCreatePayload } from './validator';
+import { validateTodoCreatePayload, validateTodoEditPayload } from './validator';
 export class TodosController {
   todosDal: TodosDal;
   constructor(todosDal: TodosDal) {
@@ -28,7 +28,7 @@ export class TodosController {
 
   //TODO: Implement update
   update(payload: ITodoPayload, id: string): IControllerResult<Todo> {
-    const { error, value } = validateTodoCreatePayload(payload);
+    const { error, value } = validateTodoEditPayload(payload);
     if(error) {
       return newControllerError(error.details[0].message, 400);
     }
