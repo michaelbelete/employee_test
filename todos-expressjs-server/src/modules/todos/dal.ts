@@ -33,7 +33,7 @@ export class TodosDal {
   }
 
   getAll(): Todo[] {
-    return this.todosArray;
+    return this.todosArray.reverse();
   }
 
   getOne(id: string): Todo {
